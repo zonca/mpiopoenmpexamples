@@ -3,9 +3,8 @@
 #include <omp.h>
 
 int main(int argc, char *argv[]) {
-  int numprocs, rank, namelen;
+  int numprocs, rank, namelen, iam = 0, np = 1;
   char processor_name[MPI_MAX_PROCESSOR_NAME];
-  int iam = 0, np = 1;
 
   MPI_Init(&argc, &argv);
   MPI_Comm_size(MPI_COMM_WORLD, &numprocs);

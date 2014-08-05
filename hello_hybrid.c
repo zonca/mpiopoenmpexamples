@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
     printf("Hello people of the universe from thread %d out of %d from process %d out of %d on %s\n",
            iam, np, rank, numprocs, processor_name);
   }
-  #pragma omp parallel default(shared) private(iam, np)
+  #pragma omp parallel num_threads(3) default(shared) private(iam, np)
   {
     np = omp_get_num_threads();
     iam = omp_get_thread_num();
